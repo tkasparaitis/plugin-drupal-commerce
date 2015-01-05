@@ -124,7 +124,7 @@ function commerce_paysera_wps_order_form($form, &$form_state, $order, $settings)
             'orderid'       => $order->order_id,
             'amount'        => $Order->commerce_order_total->amount->value(),
 
-            'currency'      => intval(number_format($Order->commerce_order_total->currency_code->value(), 0, '', '')),
+            'currency'      => $Order->commerce_order_total->currency_code->value(),
 
             'accepturl'     => url('checkout/' . $order->order_id . '/payment/return/' . $order->data['payment_redirect_key'], array('absolute' => TRUE)),
             'cancelurl'     => url('checkout/' . $order->order_id . '/payment/back/' . $order->data['payment_redirect_key'], array('absolute' => TRUE)),
